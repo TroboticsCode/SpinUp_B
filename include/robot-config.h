@@ -9,7 +9,7 @@ extern brain Brain;
 // in robot-config.cpp
 extern controller Controller1;
 extern motor tester;
-
+extern motor spinner;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Text.

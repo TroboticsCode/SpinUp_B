@@ -44,10 +44,10 @@ void userDrive(void);
   extern motor BackLeft;
   extern motor BackRight;
 
-  #define FrontLeftPort     PORT8
-  #define FrontRightPort    PORT20
-  #define BackLeftPort      PORT7
-  #define BackRightPort     PORT19
+  #define FrontLeftPort     PORT2
+  #define FrontRightPort    PORT7
+  #define BackLeftPort      PORT11
+  #define BackRightPort     PORT18
 
 #elif defined(CHASSIS_2_MOTOR_INLINE)
   extern motor DriveLeft;
@@ -77,8 +77,8 @@ void userDrive(void);
  * (from wheel center to wheel center) of 
  * your chassis here in inches
  */
- #define CHASSIS_WIDTH    12.25f
- #define CHASSIS_LENGTH   9.4f
+ #define CHASSIS_WIDTH    15.55f
+ #define CHASSIS_LENGTH   15.55f
 
 #define HYPOTENUSE sqrt(pow(CHASSIS_WIDTH,2) + pow(CHASSIS_LENGTH,2))
 #define RADIUS  HYPOTENUSE/2.0f
