@@ -28,9 +28,9 @@ void userDrive(void);
  * uncomment the chassis type here
  * x drive assumes 4 drive motors
  */
-#define CHASSIS_4_MOTOR_INLINE
+//#define CHASSIS_4_MOTOR_INLINE
 //#define CHASSIS_2_MOTOR_INLINE
-//#define CHASSIS_X_DRIVE
+#define CHASSIS_X_DRIVE
 
 /*    Drive Motor Ports
  * Enter the ports used for 
@@ -38,16 +38,16 @@ void userDrive(void);
  * Perspective is from rear of robot
  *  looking forward
  */
-#ifdef CHASSIS_4_MOTOR_INLINE
+#if defined CHASSIS_4_MOTOR_INLINE || defined CHASSIS_X_DRIVE
   extern motor FrontLeft;
   extern motor FrontRight;
   extern motor BackLeft;
   extern motor BackRight;
 
-  #define FrontLeftPort     PORT2
-  #define FrontRightPort    PORT7
-  #define BackLeftPort      PORT11
-  #define BackRightPort     PORT18
+  #define FrontLeftPort     PORT20
+  #define FrontRightPort    PORT11
+  #define BackLeftPort      PORT10
+  #define BackRightPort     PORT1
 
 #elif defined(CHASSIS_2_MOTOR_INLINE)
   extern motor DriveLeft;
@@ -61,15 +61,21 @@ void userDrive(void);
  * Define your control scheme and joystick
  *  axes here
  */
+ #ifndef CHASSIS_X_DRIVE
  #define ARCADE_CONTROL
  //#define TANK_CONTROL
+#endif
 
 #ifdef ARCADE_CONTROL
   #define HORIZONTALAXIS Axis4
   #define VERTICALAXIS Axis3
-#elif def TANK_CONTROL
+#elif defined TANK_CONTROL
   #define LEFTAXIS Axis3
   #define RIGHTAXIS Axis2
+#elif defined CHASSIS_X_DRIVE
+  #define HORIZONTALAXIS Axis4
+  #define VERTICALAXIS Axis3
+  #define ROTATIONAXIS Axis1
 #endif
 
 /*    Chassis Dimensions

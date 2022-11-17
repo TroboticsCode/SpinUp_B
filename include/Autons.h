@@ -20,5 +20,6 @@ void Paint_Screen(void);
 
 //list the names of your autonomous programs here
 void Auton1(void);
+void Auton2(void);
 
 #endif

@@ -57,6 +57,7 @@ void autonomous(void)
     break;
 
     case AutonB:
+      Auton2();
   
     break;
           
@@ -79,21 +80,28 @@ void usercontrol(void) {
   //add local user control variables here:
   tester.setVelocity(100, pct);
   spinner.setVelocity(100, pct);
+  launcher.setVelocity(100,pct);
   Brain.Screen.drawCircle(100, 100, 40, yellow);
   Brain.Screen.drawCircle(80, 90, 10, blue);
   Brain.Screen.drawCircle(120, 90, 10, blue);
   Brain.Screen.drawRectangle(80, 110, 40, 10, red);
   //User control code here, inside the loop:
   //remove existing demo code and replace with you own! Then remove this comment
-  while (1) {
+  while (true) {
     if (Controller1.ButtonX.pressing()){
       spinner.spin(forward);
     }
     else if (Controller1.ButtonY.pressing()){
       spinner.spin(reverse);
     }
-    else if (Controller1.ButtonDown.pressing()){
-      spinner.setStopping(brake);
+    else {//if (Controller1.ButtonDown.pressing()){
+      spinner.stop(coast);
+    }
+   if(Controller1.ButtonR2.pressing()){
+     launcher.spin(forward);
+    }
+    else {
+      launcher.stop();
     }
     //leave the drive code here, it should work if you set up 
     // DriveFunctionsConfig.h properly
@@ -110,12 +118,16 @@ int main() {
   // Set up callbacks for autonomous and driver control periods.
   Competition.autonomous(autonomous);
   Competition.drivercontrol(usercontrol);
-
   // Run the pre-autonomous function.
+  wait(15,seconds);
   pre_auton();
+
 
   // Prevent main from exiting with an infinite loop.
   while (true) {
     wait(100, msec);
   }
 }
+
+
+//Log: 11/17/22: Meg and riley are argiung, i want to die rn its so cringe lmao

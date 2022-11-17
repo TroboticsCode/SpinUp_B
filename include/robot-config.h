@@ -10,9 +10,10 @@ extern brain Brain;
 extern controller Controller1;
 extern motor tester;
 extern motor spinner;
+extern motor launcher;
 
 /**
- * Used to initialize code/tasks/devices added using tools in VEXcode Text.
+ * Used to initialize kcode/tasks/devices added using tools in VEXcode Text.
  * 
  * This should be called at the start of your int main function.
  */

@@ -11,11 +11,9 @@ brain  Brain;
 // VEXcode device constructors
 controller Controller1 = controller(primary);
 motor tester = motor(PORT17, GREEN, true);
-motor spinner = motor(PORT7, ratio18_1, false);
-
+motor spinner = motor(PORT7, GREEN, false);
+motor launcher = motor (PORT10, GREEN, true);
 // VEXcode generated functions
-
-
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Text.
  * 

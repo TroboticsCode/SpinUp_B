@@ -12,3 +12,7 @@ void testPID()
   //moveStop();
   wait(20, msec); // Sleep the task for a short amount of time t
 }
+
+void spinSpinner(){
+  spinner.spinFor(0.5, rev);
+}
