@@ -45,8 +45,8 @@ void userDrive(void);
   extern motor BackRight;
 
   #define FrontLeftPort     PORT20
-  #define FrontRightPort    PORT11
-  #define BackLeftPort      PORT10
+  #define FrontRightPort    PORT15
+  #define BackLeftPort      PORT8
   #define BackRightPort     PORT1
 
 #elif defined(CHASSIS_2_MOTOR_INLINE)
