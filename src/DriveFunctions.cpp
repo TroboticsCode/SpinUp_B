@@ -73,6 +73,15 @@ void userDrive(void)
   int32_t verticalAxis = Controller1.VERTICALAXIS.value()/2;
   int32_t rotateAxis = Controller1.ROTATIONAXIS.value()/2;
 
+  const int deadZone = 10;
+
+  if(abs(horizontalAxis) < deadZone)
+    horizontalAxis = 0;
+  if(abs(verticalAxis) < deadZone)
+    verticalAxis = 0;
+  if(abs(rotateAxis) < deadZone)
+    rotateAxis = 0;
+
     BackRight.setBrake(brakeType::coast);
     FrontRight.setBrake(brakeType::coast);
     BackLeft.setBrake(brakeType::coast);
