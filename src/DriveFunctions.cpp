@@ -113,6 +113,16 @@ static int    lin_minDT = 10;
 void moveLinear(float distance, int velocity, uint32_t timeOut)
 {
   float rotations = distance * (1/((float)ROTATION_FACTOR));
+
+  /*
+   * X drive angles wheels at 45deg so 
+   *  the robot will move further per rotation
+   *  by a factor of square root of 2 => 1.414
+   */
+  #ifdef CHASSIS_X_DRIVE
+    rotations /= sqrt(2);
+  #endif
+
   Brain.Screen.print("Rotations to turn: %f", rotations);
   Brain.Screen.newLine();
   Brain.Screen.print("Rotation Factor: %f", ROTATION_FACTOR);
